@@ -21,8 +21,6 @@ bold=$(tput bold);
 underline=`(tput sgr 0 1)`;
 
 reset=`tput sgr0`;
-echo ${DIFF_COUNT} 
-echo ${DIFF} 
 
 if [ ${DIFF_COUNT} -ge 1 ];then
   echo ${underline}${red}  "${bold} ${DIFF_COUNT} no-conventionnal commit found" ${reset};
