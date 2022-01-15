@@ -22,7 +22,7 @@ underline=`(tput sgr 0 1)`;
 
 reset=`tput sgr0`;
 
-if [ ${INCONVCOMMIT_COUNT} -ge 1 ];then
+if [ ${DIFF} -ge 1 ];then
   echo ${underline}${red}  "${bold}not conventionnal commit found" ${reset};
   echo ${yellow} "-------------" ${reset};
   echo ${red}"$DIFF" ${reset};
