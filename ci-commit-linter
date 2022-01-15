@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Data commits
 CONVCOMMIT_COUNT=$(git log -s --format=%s master..$1  | grep --color=never -P '^(build|ci|feat|fix|refactor|style|docs|test)?\([a-z]*\): (.{1,50}$)' | wc -l);
