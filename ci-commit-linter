@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Data commits
-CONVCOMMIT_COUNT=$(git log -s --format=%s master..$1  | grep --color=never -P '^(build|ci|feat|fix|refactor|style|docs|test)?\([a-z]*\): (.{1,50}$)' | wc -l);
+CONVCOMMIT_COUNT=$(git log -s --format=%s master..$1  | grep --color=never -E '^(build|ci|feat|fix|refactor|style|docs|test)?\([a-z]*\): (.{1,50}$)' | wc -l);
 ALLCOMMIT_COUNT=$(git log -s --format=%s master..$1  | wc -l);
 
-CONVCOMMIT_LIST=$(git log -s --format=%s master..$1  | grep -U --color=never -P '^(feat|fix|refactor|test)?\([a-z]*\): (.{1,50}$)');
+CONVCOMMIT_LIST=$(git log -s --format=%s master..$1  | grep -U --color=never -E '^(feat|fix|refactor|test)?\([a-z]*\): (.{1,50}$)');
 ALLCOMMIT_LIST=$(git log -s --format=%s master..$1 );
 
 DIFF=$(diff  <(echo -e "$ALLCOMMIT_LIST"\n) <(echo -e "$CONVCOMMIT_LIST"\n));
